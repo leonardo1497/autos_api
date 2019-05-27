@@ -25,7 +25,8 @@ SECRET_KEY = 'd#u91e&6aitf9smr@==)b^_rxd4zyp3ll8^3vg301j^&1yg#w_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.99.100']
+ALLOWED_HOSTS = ['0.0.0.0','134.209.167.224']
+
 
 
 # Application definition
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'autos',
     'rest_framework',
     'rest_framework.authtoken',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -50,8 +52,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+
 ]
 
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+)
+
+CORS_ORIGIN_ALLOW_ALL = True
 ROOT_URLCONF = 'back.urls'
 
 TEMPLATES = [
@@ -73,6 +87,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'back.wsgi.application'
 
 
+
+
+
+ALLOWED_HOSTS = ['127.0.0.1','192.168.99.100']
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
